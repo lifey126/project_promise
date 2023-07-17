@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>await</title>
+</head>
+<body>
+    <script>
+        async function main(){
+            let p = new Promise((resolve, reject)=>{
+                //resolve('OK')
+                reject('ERROR')
+            })
+            //1.Promise（成功）
+            //let res = await p
+            //2.其他类型值
+            //let res = await 521
+            //3.Promise（失败）
+            try{
+                let res = await p
+            }catch(e){
+                console.log(e)
+            }
+        }
+
+        main()
+    </script>
+</body>
+</html>

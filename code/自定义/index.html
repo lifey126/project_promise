@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise-封装</title>
+    <script src="./promise.js"></script>
+</head>
+<body>
+    <script>
+        let p = new Promise((reslove, reject)=>{
+            setTimeout(()=>{
+                //reslove('OK')
+                console.log(111)
+                reject('error')
+                //抛出异常
+                //throw "ERROR";
+            }, 1000)
+
+        })
+
+        //then 异步回调
+        p.then(value=>{
+            console.log(value)
+            console.log(222)
+        }, reason=>{
+            console.log(reason)
+            console.log(444)
+        })
+        console.log(333)
+
+        //console.log(p)
+        // const result = 
+        // p.then(value=>{
+        //     //return 'oh Yeah'
+        //     console.log(value)
+        //     // //return 'hello promise'
+        //     // return new Promise((reslove, reject)=>{
+        //     //     //reslove('success')
+        //     //     reject('oh')
+        //     // })
+        //     //抛出异常
+        //     //throw "FAIL";
+        // }, reason=>{
+        //     console.warn(reason)
+        //     //抛出异常
+        //     //throw "FAIL";
+        // })
+        // console.log(result)
+
+        // p.then(value=>{
+        //     console.log(value)
+        // }, reason=>{
+        //     console.warn(reason)
+        // })
+            
+        // p.catch(reason=>{
+        //     console.warn(reason)
+        // })
+    
+
+        //值传递
+        // p.then()
+        // .then(value=>{
+        //     console.log(111)
+        // }).then(value=>{
+        //     console.log(222)
+        // }).then(value=>{
+        //     console.log(333)
+        // }).catch(reason=>{
+        //     console.warn(reason)
+        // })
+    
+        //测试resolve
+        // const p1 = Promise.resolve('ok')
+        // const p2 = Promise.resolve(new Promise((resolve, reject)=>{
+        //     resolve('success')
+        // }))
+        // const p3 = Promise.resolve(new Promise((resolve, reject)=>{
+        //     reject('error')
+        // }))
+        // const p4 = Promise.resolve(Promise.resolve('oh Yeah'))
+        // console.log(p1)
+        // console.log(p2)
+        // console.log(p3)
+        // console.log(p4)
+
+        //测试reject
+        // const p1 = Promise.reject('Error')
+        // const p2 = Promise.reject(new Promise((resolve, reject)=>{
+        //     resolve('OK')
+        // }))
+        // console.log(p1)
+        // console.log(p2)
+    
+
+        // let p1 = new Promise((reslove, reject)=>{
+        //     setTimeout(()=>{
+        //         reslove('OK')
+        //     }, 1000)
+        // })
+        // let p2 = Promise.resolve('Success')
+        // let p3 = Promise.resolve('Oh Year')
+
+        //测试all
+        // let result = Promise.all([p1, p2, p3])
+        // console.log(result)
+
+        //测试race
+        // let result = Promise.race([p1, p2, p3])
+        // console.log(result)
+
+
+    </script>
+</body>
+</html>

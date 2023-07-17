@@ -1,0 +1,47 @@
+<!--
+ * @Author: lifey lifey@cast.cn
+ * @Date: 2023-07-16 14:39:42
+ * @LastEditors: lifey lifey@cast.cn
+ * @LastEditTime: 2023-07-16 15:05:13
+ * @FilePath: \code-promise\code\01Promise初体验.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="page-heder">Promise初体验</h2>
+        <hr>
+        <button class="btn btn-primary" id="btn">点击抽奖</button>
+    </div>
+    <script>
+        function rand(m,n){
+            return Math.ceil(Math.random() * (n-m+1)) + m - 1;
+        }
+        /*2s抽奖*/
+        const btn = document.querySelector('#btn')
+        btn.addEventListener('click', function(){
+            const p = new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    let n = rand(1, 100);
+                    if(n<=30){
+                        resolve(n);
+                    }else{
+                        reject(n);
+                    }
+                }, 1000)
+            })
+            p.then((value)=>{
+                alert('恭喜' + value)
+            }, (reason)=>{
+                alert('再接再厉' + reason)
+            })
+        })
+    </script>
+</body>
+</html>
